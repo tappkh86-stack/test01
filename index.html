@@ -1,191 +1,57 @@
-/* 초기화 및 기본 폰트 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대한민국의 숨겨진 보석 - 자연 여행</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    color: #333;
-    background-color: #ffffff;
-    overflow-x: hidden;
-}
+    <header class="hero-header">
+        <video autoplay loop muted playsinline class="back-video" id="heroVideo">
+            <source src="KakaoTalk_20260331_200812123" type="video/mp4">
+            브라우저가 비디오 태그를 지원하지 않습니다.
+        </video>
 
-/* Hero 섹션 스타일 */
-.hero {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+        <div class="content">
+            <h1>대한민국의 사계, 자연의 숨결</h1>
+            <p>우리나라 방방곡곡 숨겨진 아름다움을 만나보세요.</p>
+            <a href="#intro" class="btn">더 알아보기</a>
+        </div>
+    </header>
 
-.video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
+    <section class="intro" id="intro">
+        <div class="container">
+            <h2>자연과 함께하는 힐링</h2>
+            <p>푸른 바다부터 웅장한 산맥까지, 대한민국은 사계절마다 새로운 옷을 갈아입습니다.</p>
+        </div>
+    </section>
 
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 비디오 비율 유지하며 꽉 채움 */
-}
+    <section class="destinations">
+        <div class="container grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=500&q=80');"></div>
+                <h3>제주도 성산일출봉</h3>
+                <p>유네스코 세계자연유산으로 지정된 성산일출봉은 바다 위로 솟아오른 거대한 성과 같은 장관을 연출합니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1596404975303-345330897c5e?auto=format&fit=crop&w=500&q=80');"></div>
+                <h3>설악산 국립공원</h3>
+                <p>사계절 내내 아름다운 설악산은 특히 가을철 울긋불긋한 단풍과 기암괴석이 어우러진 비경이 일품입니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=500&q=80');"></div>
+                <h3>순천만 습지</h3>
+                <p>세계 5대 연안습지 중 하나로, 끝없이 펼쳐진 갈대밭과 갯벌은 수많은 생태계의 보고이자 평온한 휴식을 제공합니다.</p>
+            </div>
+        </div>
+    </section>
 
-/* 영상 위에 어두운 겹침 레이어 추가 (글씨 가독성) */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
-    z-index: 0;
-}
+    <footer>
+        <p>&copy; 2026 대한민국 자연 여행 가이드. All Rights Reserved.</p>
+    </footer>
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: #fff;
-}
-
-.hero-content h1 {
-    font-family: 'Nanum Myeongjo', serif;
-    font-size: 4.5rem;
-    margin-bottom: 20px;
-    letter-spacing: 5px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 40px;
-    opacity: 0.9;
-}
-
-/* 버튼 디자인 */
-.btn-primary {
-    padding: 15px 40px;
-    background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    border-radius: 50px;
-}
-
-.btn-primary:hover {
-    background: #fff;
-    color: #222;
-}
-
-/* 스크롤 유도 애니메이션 */
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 50px;
-    border: 2px solid #fff;
-    border-radius: 20px;
-    z-index: 1;
-}
-
-.scroll-indicator span {
-    display: block;
-    width: 4px;
-    height: 10px;
-    background: #fff;
-    margin: 10px auto;
-    border-radius: 2px;
-    animation: scroll-anim 2s infinite;
-}
-
-@keyframes scroll-anim {
-    0% { opacity: 0; transform: translateY(0); }
-    50% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(15px); }
-}
-
-/* 본문 디자인 */
-.content-section {
-    padding: 100px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    color: #1a3a3a;
-    margin-bottom: 10px;
-}
-
-.line {
-    width: 60px;
-    height: 3px;
-    background: #2e7d32;
-    margin: 0 auto 30px;
-}
-
-.section-desc {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 60px;
-    line-height: 1.8;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.card {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.card img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card:hover img {
-    transform: scale(1.1);
-}
-
-.card-info {
-    padding: 25px;
-    text-align: left;
-}
-
-footer {
-    background: #111;
-    color: #777;
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-/* 반응형 처리 */
-@media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-content p { font-size: 1.1rem; }
-    .grid { grid-template-columns: 1fr; }
-}
+</body>
+</html>
